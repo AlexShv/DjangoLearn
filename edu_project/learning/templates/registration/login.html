@@ -1,0 +1,10 @@
+{% extends 'learning/base.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log in</button>
+    </form>
+    Don't have an account yet? <a href="{% url 'register' %}">Register</a>
+{% endblock %}

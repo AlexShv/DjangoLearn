@@ -1,0 +1,51 @@
+<!-- New courses -->
+<h4>New Courses</h4>
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row align-items-center">
+                {% for new_course in new_courses|slice:":4" %}
+                <div class="col-md-3">
+                    <a href="{% url 'course_detail' course_id=new_course.id %}" class="card_link">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ new_course.image.url }}" alt="Card image">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ new_course.title }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="row align-items-center">
+                {% for new_course in new_courses|slice:"4:" %}
+                <div class="col-md-3">
+                    <a href="{% url 'course_detail' course_id=new_course.id %}" class="card_link">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ new_course.image.url }}" alt="Card image">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ new_course.title }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>

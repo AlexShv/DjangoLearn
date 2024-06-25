@@ -1,0 +1,7 @@
+{% extends 'learning/base.html' %}
+
+{% block content %}
+    {% for course in courses_in_category %}
+        <p>{{ course.title }}</p>
+    {% endfor %}
+{% endblock %}
